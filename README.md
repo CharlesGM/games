@@ -2,38 +2,81 @@
 
 A classic Snake game implementation in Python using Pygame. Control the snake to eat food and grow longer while avoiding walls and your own tail!
 
-I developed this game using AWS Q CLI and python.
+I developed this game using AWS Q CLI and Python.
 
-## Prerequisites
+## Quick Start
 
-You need Python 3 and Pygame installed on your system.
+### Option 1: Automated Setup (Recommended)
+The easiest way to get started is using the provided setup script:
 
-### Installing Pygame
-
+**For macOS/Linux:**
 ```bash
-pip install pygame
+# Clone the repository
+git clone <your-repo-url>
+cd <repo-name>
+
+# Make the script executable (if needed)
+chmod +x run_snake.sh
+
+# Run the setup and launch script (handles everything automatically)
+./run_snake.sh
 ```
 
-Or if you're using Python 3 specifically:
-```bash
-pip3 install pygame
+**For Windows:**
+```cmd
+# Clone the repository
+git clone <your-repo-url>
+cd <repo-name>
+
+# Run the Windows batch script
+run_snake.bat
 ```
 
-## How to Run
+The script will automatically:
+- Check for Python installation
+- Create a virtual environment
+- Install pygame
+- Launch the game
 
-1. Navigate to the game directory:
+### Option 2: Manual Setup
+
+#### Prerequisites
+- Python 3.6 or higher
+- Git (for cloning)
+
+#### Step-by-Step Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone <your-repo-url>
+   cd <repo-name>
+   ```
+
+2. **Create a virtual environment:**
+   ```bash
+   python3 -m venv snake_game_env
+   ```
+
+3. **Activate the virtual environment:**
+   ```bash
+   # On macOS/Linux:
+   source snake_game_env/bin/activate
+   
+   # On Windows:
+   snake_game_env\Scripts\activate
+   ```
+
+4. **Install pygame:**
+   ```bash
+   pip install pygame
+   # Or use the requirements file:
+   pip install -r requirements.txt
+   ```
+
+5. **Run the game:**
    ```bash
    cd snakes/
-   ```
-
-2. Run the game:
-   ```bash
    python snake_game.py
-   ```
-   
-   Or:
-   ```bash
-   python3 snake_game.py
    ```
 
 ## How to Play
@@ -74,25 +117,82 @@ pip3 install pygame
 - Visual distinction between snake head and body
 - Collision detection for walls and self
 
+## Project Structure
+
+```
+snake-game/
+├── README.md              # This file
+├── run_snake.sh          # Automated setup and launch script (macOS/Linux)
+├── run_snake.bat         # Automated setup and launch script (Windows)
+├── requirements.txt      # Python dependencies
+├── snake_game.py         # Main game file (root directory)
+├── snakes/
+│   └── snake_game.py     # Alternative game location
+└── snake_game_env/       # Virtual environment (created automatically)
+```
+
 ## Troubleshooting
 
-### "No module named 'pygame'" error
-Install Pygame using pip:
+### Common Issues
+
+#### "Permission denied" when running ./run_snake.sh
+Make the script executable:
 ```bash
+chmod +x run_snake.sh
+```
+
+#### "No module named 'pygame'" error
+This usually means pygame isn't installed in your current environment:
+```bash
+# Activate virtual environment first
+source snake_game_env/bin/activate
+# Then install pygame
 pip install pygame
 ```
 
-### Game runs too fast/slow
-The game speed is set to 10 FPS. You can modify the speed by changing the number in this line in `snake_game.py`:
+#### "python3: command not found"
+Install Python 3:
+- **macOS**: `brew install python3` or download from [python.org](https://python.org)
+- **Ubuntu/Debian**: `sudo apt update && sudo apt install python3 python3-venv`
+- **Windows**: Download from [python.org](https://python.org)
+
+#### Game runs too fast/slow
+Modify the game speed by changing this line in `snake_game.py`:
 ```python
 self.clock.tick(10)  # Change 10 to higher number for faster, lower for slower
 ```
 
-### Permission denied error
-Make sure the file is executable:
+#### Virtual environment issues
+Delete the virtual environment and recreate it:
 ```bash
-chmod +x snake_game.py
+rm -rf snake_game_env
+python3 -m venv snake_game_env
+source snake_game_env/bin/activate
+pip install pygame
 ```
+
+## Development
+
+### Running in Development Mode
+If you want to modify the game:
+
+1. Activate the virtual environment:
+   ```bash
+   source snake_game_env/bin/activate
+   ```
+
+2. Make your changes to `snake_game.py`
+
+3. Run the game:
+   ```bash
+   python snake_game.py
+   ```
+
+### Adding New Features
+The game is structured to make it easy to add new features:
+- Game logic is in the main game loop
+- Display functions are separated for easy modification
+- Game state is managed through class variables
 
 ## Game Controls Summary
 
@@ -106,4 +206,14 @@ chmod +x snake_game.py
 | Space | Restart (Game Over) |
 | Q | Quit (Game Over) |
 
-Enjoy playing Snake! Try to beat your high score!
+## Contributing
+
+Feel free to fork this repository and submit pull requests for improvements!
+
+## License
+
+This project is open source. Feel free to use and modify as needed.
+
+---
+
+Enjoy playing Snake! Try to beat your high score! 🐍🎮
