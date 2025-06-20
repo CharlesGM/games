@@ -38,12 +38,8 @@ if errorlevel 1 (
     echo ✅ Pygame is already installed.
 )
 
-REM Check if snake_game.py exists in the expected location
-if exist "snakes\snake_game.py" (
-    echo 🚀 Starting Snake Game...
-    cd snakes
-    python snake_game.py
-) else if exist "snake_game.py" (
+REM Check if snake_game.py exists
+if exist "snake_game.py" (
     echo 🚀 Starting Snake Game...
     python snake_game.py
 ) else (

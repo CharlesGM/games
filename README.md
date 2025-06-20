@@ -75,7 +75,6 @@ The script will automatically:
 
 5. **Run the game:**
    ```bash
-   cd snakes/
    python snake_game.py
    ```
 
@@ -125,9 +124,7 @@ snake-game/
 ├── run_snake.sh          # Automated setup and launch script (macOS/Linux)
 ├── run_snake.bat         # Automated setup and launch script (Windows)
 ├── requirements.txt      # Python dependencies
-├── snake_game.py         # Main game file (root directory)
-├── snakes/
-│   └── snake_game.py     # Alternative game location
+├── snake_game.py         # Main game file
 └── snake_game_env/       # Virtual environment (created automatically)
 ```
 

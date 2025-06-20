@@ -37,11 +37,8 @@ else
     echo "✅ Pygame is already installed."
 fi
 
-# Check if snake_game.py exists in the expected location
-if [ -f "snakes/snake_game.py" ]; then
-    echo "🚀 Starting Snake Game..."
-    cd snakes && python snake_game.py
-elif [ -f "snake_game.py" ]; then
+# Check if snake_game.py exists
+if [ -f "snake_game.py" ]; then
     echo "🚀 Starting Snake Game..."
     python snake_game.py
 else
