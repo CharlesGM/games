@@ -22,7 +22,7 @@ chmod +x run_snake.sh
 ./run_snake.sh
 ```
 
-**For Windows:**
+**For Windows (Option A - Batch Script):**
 ```cmd
 # Clone the repository
 git clone <your-repo-url>
@@ -32,8 +32,21 @@ cd <repo-name>
 run_snake.bat
 ```
 
-The script will automatically:
-- Check for Python installation (*no need to be a charmer* 🐍)
+**For Windows (Option B - PowerShell Script - Recommended):**
+```powershell
+# Clone the repository
+git clone <your-repo-url>
+cd <repo-name>
+
+# Run the PowerShell script (more reliable for auto-installation)
+powershell -ExecutionPolicy Bypass -File run_snake.ps1
+```
+
+The scripts will automatically:
+- **Detect and install Python** if not present (*no need to be a charmer* 🐍)
+  - macOS: Uses Homebrew if available
+  - Linux: Uses system package manager (apt, yum, dnf, or pacman)
+  - Windows: Uses Windows Package Manager (winget) or direct download
 - Create a virtual environment (*your own snake pit*)
 - Install pygame (*get ready to rattle and roll*)
 - Launch the game (*time to shed some stress*)
@@ -123,6 +136,7 @@ snake-game/
 ├── README.md              # This file
 ├── run_snake.sh          # Automated setup and launch script (macOS/Linux)
 ├── run_snake.bat         # Automated setup and launch script (Windows)
+├── run_snake.ps1         # PowerShell setup script (Windows - Recommended)
 ├── requirements.txt      # Python dependencies
 ├── snake_game.py         # Main game file
 └── snake_game_env/       # Virtual environment (created automatically)
@@ -147,11 +161,30 @@ source snake_game_env/bin/activate
 pip install pygame
 ```
 
-#### "python3: command not found"
-Install Python 3:
-- **macOS**: `brew install python3` or download from [python.org](https://python.org)
-- **Ubuntu/Debian**: `sudo apt update && sudo apt install python3 python3-venv`
-- **Windows**: Download from [python.org](https://python.org)
+#### "python3: command not found" or Python installation issues
+The enhanced scripts now automatically install Python if it's not found:
+
+- **macOS**: Requires Homebrew. If not installed, the script will provide instructions
+- **Linux**: Uses your system's package manager (apt, yum, dnf, or pacman)
+- **Windows**: Uses Windows Package Manager (winget) or downloads directly from python.org
+
+If automatic installation fails:
+- **macOS**: Install Homebrew first: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+- **Linux**: Use your package manager manually: `sudo apt install python3 python3-venv python3-pip`
+- **Windows**: Download from [python.org](https://python.org) and ensure "Add Python to PATH" is checked
+
+#### Script execution issues on Windows
+If you get "execution policy" errors with PowerShell:
+```powershell
+# Run PowerShell as Administrator and execute:
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+# Then run the script normally
+```
+
+Or use the bypass method:
+```powershell
+powershell -ExecutionPolicy Bypass -File run_snake.ps1
+```
 
 #### Game runs too fast/slow
 Modify the game speed by changing this line in `snake_game.py`:
