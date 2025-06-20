@@ -6,14 +6,53 @@ I developed this game using AWS Q CLI and Python - it's a real *scale-able* solu
 
 ## Quick Start <slither-right-in>
 
+### Prerequisites <get-your-tools-ready>
+Before running the game, you'll need Git to clone the repository. If you don't have Git installed:
+
+**Install Git on macOS:**
+```bash
+# Option 1: Using Homebrew (recommended)
+brew install git
+
+# Option 2: Download from official website
+# Visit https://git-scm.com/download/mac and download the installer
+```
+
+**Install Git on Windows:**
+```powershell
+# Option 1: Using Windows Package Manager (winget)
+winget install Git.Git
+
+# Option 2: Using Chocolatey (if you have it)
+choco install git
+
+# Option 3: Download from official website
+# Visit https://git-scm.com/download/win and download the installer
+```
+
+**Install Git on Linux:**
+```bash
+# Ubuntu/Debian
+sudo apt update && sudo apt install git
+
+# RHEL/CentOS/Fedora (older)
+sudo yum install git
+
+# Fedora (newer)
+sudo dnf install git
+
+# Arch Linux
+sudo pacman -S git
+```
+
 ### Option 1: Automated Setup (Recommended) <no-hassssle>
 The easiest way to get started is using the provided setup script - it's *fang-tastic*:
 
 **For macOS/Linux:**
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd <repo-name>
+git clone https://github.com/CharlesGM/games.git
+cd games
 
 # Make the script executable (if needed)
 chmod +x run_snake.sh
@@ -25,8 +64,8 @@ chmod +x run_snake.sh
 **For Windows (Option A - Batch Script):**
 ```cmd
 # Clone the repository
-git clone <your-repo-url>
-cd <repo-name>
+git clone https://github.com/CharlesGM/games.git
+cd games
 
 # Run the Windows batch script
 run_snake.bat
@@ -35,8 +74,8 @@ run_snake.bat
 **For Windows (Option B - PowerShell Script - Recommended):**
 ```powershell
 # Clone the repository
-git clone <your-repo-url>
-cd <repo-name>
+git clone https://github.com/CharlesGM/games.git
+cd games
 
 # Run the PowerShell script (more reliable for auto-installation)
 powershell -ExecutionPolicy Bypass -File run_snake.ps1
@@ -61,8 +100,8 @@ The scripts will automatically:
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repo-url>
-   cd <repo-name>
+   git clone https://github.com/CharlesGM/games.git
+   cd games
    ```
 
 2. **Create a virtual environment:**
