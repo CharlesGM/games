@@ -312,10 +312,10 @@ def main(win):
             level_time += clock.get_rawtime()
             clock.tick()
 
-            if level_time/1000 > 5:
+            if level_time/1000 > 30:
                 level_time = 0
-                if fall_speed > 0.12:
-                    fall_speed -= 0.005
+                if fall_speed > 0.08:
+                    fall_speed -= 0.001
 
             if fall_time/1000 >= fall_speed:
                 fall_time = 0
